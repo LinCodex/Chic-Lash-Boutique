@@ -23,7 +23,6 @@ export const SERVICES: Service[] = [
     id: "gel-nails",
     name: "Classic Gel Nails",
     description: "Shiny, long-lasting gel polish that won't chip for weeks. We take extra care of your cuticles to make sure your hands look clean and pretty.",
-    price: "$55",
     duration: "1 HOUR",
     image: "/classic gel nail.webp"
   },
@@ -31,7 +30,6 @@ export const SERVICES: Service[] = [
     id: "full-lashes",
     name: "Full Eye Lashes",
     description: "Get beautiful, long lashes that look natural but noticeable. Perfect for everyday wear so you can wake up ready to go without mascara.",
-    price: "$120",
     duration: "1.5 HOURS",
     image: "/L3_Model.webp"
   },
@@ -39,7 +37,6 @@ export const SERVICES: Service[] = [
     id: "spa-pedi",
     name: "Relaxing Pedicure",
     description: "A nice treat for your feet. Includes a warm soak, scrubbing away dry skin, a soft massage, and your favorite color polish.",
-    price: "$65",
     duration: "1 HOUR",
     image: "/Pedicure.webp"
   },
@@ -47,7 +44,6 @@ export const SERVICES: Service[] = [
     id: "quick-mani",
     name: "Simple Manicure",
     description: "A quick cleanup for your nails. We trim, shape, and paint them so you can get back to your day looking fresh.",
-    price: "$35",
     duration: "45 MINS",
     image: "/simplemanicure.webp"
   }

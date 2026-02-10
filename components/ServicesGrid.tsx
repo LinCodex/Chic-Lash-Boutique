@@ -144,10 +144,6 @@ const ServicesGrid: React.FC = () => {
                     }`}>
                     {service.name}
                   </h3>
-                  <span className={`text-sm font-medium transition-colors duration-300 ${activeServiceId === service.id ? 'text-pink-600' : 'text-gray-400'
-                    }`}>
-                    {service.price}
-                  </span>
                 </div>
 
                 <div className={`grid transition-all duration-500 ease-in-out ${activeServiceId === service.id ? 'grid-rows-[1fr] opacity-100 mt-2' : 'grid-rows-[0fr] opacity-0'
@@ -206,9 +202,7 @@ const ServicesGrid: React.FC = () => {
                   <div className="absolute bottom-4 left-4 text-white">
                     <h3 className="text-2xl font-serif italic">{service.name}</h3>
                   </div>
-                  <span className="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1.5 text-xs font-bold tracking-wider rounded-sm shadow-sm">
-                    {service.price}
-                  </span>
+
                 </div>
 
                 {/* Content Body */}

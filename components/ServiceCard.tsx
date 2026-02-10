@@ -32,7 +32,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
         <div className="flex-1 p-6 md:p-8 flex flex-col justify-between">
           <div className="flex justify-between items-start">
             <h3 className="text-xl md:text-2xl font-semibold tracking-widest">{service.name}</h3>
-            <span className="text-sm tracking-widest text-gray-400">{service.duration} — {service.price}</span>
+            <span className="text-sm tracking-widest text-gray-400">{service.duration}</span>
           </div>
           <p className="text-xs md:text-sm text-gray-500 mt-4 leading-relaxed max-w-xl font-light italic">
             {service.description}
