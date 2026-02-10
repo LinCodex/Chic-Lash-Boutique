@@ -1,0 +1,49 @@
+import React from 'react';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import ServicesGrid from './components/ServicesGrid';
+import Gallery from './components/Gallery';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import { CONTACT_INFO } from './constants';
+
+const App: React.FC = () => {
+  return (
+    <div className="min-h-screen bg-white selection:bg-pink-900 selection:text-white">
+      <Navbar />
+
+      <main className="w-full">
+        <Hero />
+
+        {/* About Section - snap-start added here for the specific hero-to-about scroll behavior */}
+        <section id="about" className="min-h-[60vh] flex items-center justify-center pt-24 pb-20 bg-gradient-to-b from-pink-200 via-pink-50 to-white relative overflow-hidden">
+          <div className="container mx-auto px-6 md:px-20 relative z-10 text-center">
+            <div className="max-w-3xl mx-auto space-y-10">
+              <span className="text-pink-600 text-[12px] uppercase tracking-widest font-bold block">Why Choose Us</span>
+              <p className="text-3xl md:text-5xl font-serif font-bold leading-tight text-gray-900">
+                We believe that <span className="text-pink-500 italic font-light">getting your nails done</span> should be the best part of your day.
+              </p>
+              <div className="flex flex-col items-center gap-6">
+                <div className="w-16 h-1 bg-pink-300/50 rounded-full"></div>
+                <p className="text-sm text-gray-500 max-w-md mx-auto leading-relaxed font-medium">
+                  Our team loves what they do. We use safe, high-quality products to make sure you get results that last and look amazing.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <ServicesGrid />
+
+        <Gallery />
+
+        <div>
+          <Contact />
+          <Footer />
+        </div>
+      </main>
+    </div>
+  );
+};
+
+export default App;
