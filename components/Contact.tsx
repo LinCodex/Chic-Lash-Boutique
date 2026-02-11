@@ -12,7 +12,7 @@ const Contact: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center h-full">
 
           <div className="space-y-8 lg:space-y-12">
-            <div className="relative">
+            <div className="relative text-center lg:text-left">
               <h4 className="text-pink-500 uppercase tracking-widest text-xs mb-4 font-bold">Come Say Hi</h4>
               <h2 className="text-5xl md:text-6xl font-serif font-bold text-gray-900 leading-tight">
                 Find Us & <br />
@@ -20,45 +20,45 @@ const Contact: React.FC = () => {
               </h2>
             </div>
 
-            <div className="space-y-6 lg:space-y-8 pl-2">
+            <div className="space-y-8 lg:space-y-8 lg:pl-2">
               {/* Address */}
-              <div className="flex gap-6 items-start group">
-                <div className="w-10 h-10 lg:w-12 lg:h-12 bg-pink-50 rounded-full flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-pink-100 transition-all duration-300">
-                  <svg className="w-4 h-4 lg:w-5 lg:h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+              <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-6 group text-center lg:text-left">
+                <div className="w-12 h-12 lg:w-12 lg:h-12 bg-pink-50 rounded-full flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-pink-100 transition-all duration-300">
+                  <svg className="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                 </div>
                 <div>
                   <p className="text-xs uppercase tracking-widest text-gray-400 mb-1 font-bold">Address</p>
-                  <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" className="text-base lg:text-lg text-gray-700 group-hover:text-pink-600 transition-colors block max-w-xs leading-relaxed">
+                  <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" className="text-lg text-gray-700 group-hover:text-pink-600 transition-colors block max-w-xs leading-relaxed">
                     {CONTACT_INFO.address}
                   </a>
                 </div>
               </div>
 
               {/* Phone */}
-              <div className="flex gap-6 items-start group">
-                <div className="w-10 h-10 lg:w-12 lg:h-12 bg-pink-50 rounded-full flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-pink-100 transition-all duration-300">
-                  <svg className="w-4 h-4 lg:w-5 lg:h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+              <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-6 group text-center lg:text-left">
+                <div className="w-12 h-12 lg:w-12 lg:h-12 bg-pink-50 rounded-full flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-pink-100 transition-all duration-300">
+                  <svg className="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                 </div>
                 <div>
                   <p className="text-xs uppercase tracking-widest text-gray-400 mb-1 font-bold">Phone</p>
-                  <a href={telUrl} className="text-base lg:text-lg text-gray-700 group-hover:text-pink-600 transition-colors">
+                  <a href={telUrl} className="text-lg text-gray-700 group-hover:text-pink-600 transition-colors">
                     {CONTACT_INFO.displayPhone}
                   </a>
                 </div>
               </div>
 
               {/* Hours */}
-              <div className="flex gap-6 items-start">
-                <div className="w-10 h-10 lg:w-12 lg:h-12 bg-pink-50 rounded-full flex items-center justify-center shrink-0">
-                  <svg className="w-4 h-4 lg:w-5 lg:h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-6 text-center lg:text-left">
+                <div className="w-12 h-12 lg:w-12 lg:h-12 bg-pink-50 rounded-full flex items-center justify-center shrink-0">
+                  <svg className="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
-                <div className="w-full">
+                <div className="w-full flex flex-col items-center lg:items-start">
                   <p className="text-xs uppercase tracking-widest text-gray-400 mb-3 font-bold">Opening Hours</p>
-                  <div className="grid grid-cols-1 gap-1">
+                  <div className="grid grid-cols-1 gap-1 w-full max-w-xs">
                     {BUSINESS_HOURS.map((item) => (
-                      <div key={item.day} className="flex justify-between items-center text-sm max-w-xs border-b border-gray-50 last:border-0 pb-1 last:pb-0">
-                        <span className="font-medium text-gray-900 w-24">{item.day}</span>
-                        <span className={`text-gray-600 ${item.hours === 'Closed' ? 'text-pink-400 italic' : ''}`}>{item.hours}</span>
+                      <div key={item.day} className="flex justify-between items-center text-sm border-b border-gray-50 last:border-0 pb-1 last:pb-0">
+                        <span className="font-medium text-gray-900 w-24 text-left">{item.day}</span>
+                        <span className={`text-gray-600 text-right ${item.hours === 'Closed' ? 'text-pink-400 italic' : ''}`}>{item.hours}</span>
                       </div>
                     ))}
                   </div>

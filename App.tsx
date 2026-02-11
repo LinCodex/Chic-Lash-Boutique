@@ -34,9 +34,9 @@ const HomePage: React.FC = () => {
           </div>
         </section>
 
-        <CustomerReviews />
-
         <Gallery />
+
+        <CustomerReviews />
 
         <div>
           <Contact />
