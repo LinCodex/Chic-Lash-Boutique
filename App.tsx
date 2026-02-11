@@ -1,17 +1,18 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import ServicesGrid from './components/ServicesGrid';
+import ServicesGrid from './components/ServicesGrid'; // Keep for treatment-menu page logic if needed, but App uses CustomerReviews now
+import CustomerReviews from './components/CustomerReviews';
 import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import { CONTACT_INFO } from './constants';
+import TreatmentMenu from './pages/TreatmentMenu';
 
-const App: React.FC = () => {
+const HomePage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white selection:bg-pink-900 selection:text-white">
+    <>
       <Navbar />
-
       <main className="w-full">
         <Hero />
 
@@ -33,7 +34,7 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        <ServicesGrid />
+        <CustomerReviews />
 
         <Gallery />
 
@@ -42,7 +43,20 @@ const App: React.FC = () => {
           <Footer />
         </div>
       </main>
-    </div>
+    </>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <Router>
+      <div className="min-h-screen bg-white selection:bg-pink-900 selection:text-white">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/treatment-menu" element={<TreatmentMenu />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 

@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { CONTACT_INFO } from '../constants';
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +23,25 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Check for hash in URL and scroll to it if present (handling cross-page navigation)
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        setTimeout(() => {
+          const headerOffset = 80;
+          const elementRect = element.getBoundingClientRect();
+          const absoluteElementTop = elementRect.top + window.pageYOffset;
+          window.scrollTo({
+            top: absoluteElementTop - headerOffset,
+            behavior: 'smooth'
+          });
+        }, 100); // Small delay to ensure render
+      }
+    }
+  }, [location]);
+
+
   // Prevent scrolling when mobile menu is open
   useEffect(() => {
     if (isMenuOpen) {
@@ -32,50 +54,58 @@ const Navbar: React.FC = () => {
   const scrollToTop = (e: React.MouseEvent) => {
     e.preventDefault();
     setIsMenuOpen(false);
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
-
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault();
-    setIsMenuOpen(false);
-
-    const element = document.getElementById(id);
-    if (element) {
-      const headerOffset = 80; // Approx fixed header height
-      const elementRect = element.getBoundingClientRect();
-      const elementHeight = elementRect.height;
-      const viewportHeight = window.innerHeight;
-
-      // Get absolute position relative to document
-      const absoluteElementTop = elementRect.top + window.pageYOffset;
-
-      let targetPosition;
-
-      // Mobile Optimization:
-      // If element is taller than viewport (common for Services/Contact on mobile),
-      // align to top (with offset) so the user sees the start of the section.
-      // Otherwise, center it in the viewport for a dramatic effect.
-      if (elementHeight > viewportHeight) {
-        targetPosition = absoluteElementTop - headerOffset;
-      } else {
-        targetPosition = absoluteElementTop - (viewportHeight / 2) + (elementHeight / 2);
-      }
-
+    if (location.pathname !== '/') {
+      navigate('/');
+      window.scrollTo(0, 0);
+    } else {
       window.scrollTo({
-        top: targetPosition,
-        behavior: "smooth"
+        top: 0,
+        behavior: 'smooth'
       });
     }
   };
 
+  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+
+    if (href.startsWith('/')) {
+      // It's a page route
+      navigate(href);
+    } else {
+      // It's a section ID
+      if (location.pathname !== '/') {
+        navigate('/#' + href);
+      } else {
+        const element = document.getElementById(href);
+        if (element) {
+          const headerOffset = 80;
+          const elementRect = element.getBoundingClientRect();
+          const elementHeight = elementRect.height;
+          const viewportHeight = window.innerHeight;
+          const absoluteElementTop = elementRect.top + window.pageYOffset;
+
+          let targetPosition;
+          if (elementHeight > viewportHeight) {
+            targetPosition = absoluteElementTop - headerOffset;
+          } else {
+            targetPosition = absoluteElementTop - (viewportHeight / 2) + (elementHeight / 2);
+          }
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth"
+          });
+        }
+      }
+    }
+  };
+
   const navLinks = [
-    { name: 'About us', href: 'about' },
-    { name: 'Services', href: 'services' },
-    { name: 'Gallery', href: 'gallery' },
-    { name: 'Contacts', href: 'contact' },
+    { name: 'About us', href: 'about', type: 'section' },
+    { name: 'Treatment Menu', href: '/treatment-menu', type: 'page' }, // Changed from Services -> Treatment Menu
+    { name: 'Gallery', href: 'gallery', type: 'section' },
+    { name: 'Contacts', href: 'contact', type: 'section' },
   ];
 
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT_INFO.address)}`;
@@ -92,9 +122,9 @@ const Navbar: React.FC = () => {
             {navLinks.map((link) => (
               <a
                 key={link.name}
-                href={`#${link.href}`}
-                onClick={(e) => scrollToSection(e, link.href)}
-                className="text-[10px] uppercase tracking-widest hover:text-pink-600 transition-colors"
+                href={link.href.startsWith('/') ? link.href : `#${link.href}`}
+                onClick={(e) => handleNavigation(e, link.href)}
+                className="text-[10px] uppercase tracking-widest hover:text-pink-600 transition-colors cursor-pointer"
               >
                 {link.name}
               </a>
@@ -103,7 +133,7 @@ const Navbar: React.FC = () => {
 
           {/* Center Logo - Left aligned on Mobile, Centered on Desktop */}
           <div className="flex lg:flex-1 justify-start lg:justify-center z-[110]">
-            <a href="#" onClick={scrollToTop} className="group text-left md:text-center">
+            <a href="/" onClick={scrollToTop} className="group text-left md:text-center block">
               <h1 className={`font-serif text-xl lg:text-3xl tracking-wide transition-colors duration-300 ${scrolled || isMenuOpen ? 'text-gray-900' : 'text-pink-950'}`}>
                 chic lash <span className="font-light italic opacity-80">boutique</span>
               </h1>
@@ -180,8 +210,8 @@ const Navbar: React.FC = () => {
           {navLinks.map((link) => (
             <a
               key={link.name}
-              href={`#${link.href}`}
-              onClick={(e) => scrollToSection(e, link.href)}
+              href={link.href.startsWith('/') ? link.href : `#${link.href}`}
+              onClick={(e) => handleNavigation(e, link.href)}
               className="text-3xl font-serif text-gray-900 hover:text-pink-500 hover:italic transition-all duration-300"
             >
               {link.name}
