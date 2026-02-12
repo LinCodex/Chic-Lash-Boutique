@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
         <img
           src="/hero3.webp"
           alt="Lash Artistry Showcase"
-          className="h-full w-full object-cover md:object-contain object-center relative z-10"
+          className="h-full w-full object-contain object-center relative z-10"
           style={{
             maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
             WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)'
