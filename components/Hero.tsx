@@ -7,11 +7,11 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 bg-pink-200" />
 
       {/* Main Image Container - Below Header, Centered Bottom */}
-      <div className="absolute top-24 md:top-32 lg:top-40 left-0 right-0 bottom-0 flex items-end justify-center pointer-events-none">
+      <div className="absolute top-20 md:top-32 lg:top-40 left-0 right-0 bottom-0 flex items-end justify-center pointer-events-none">
         <img
           src="/hero.webp"
           alt="Lash Artistry Showcase"
-          className="h-full w-full object-contain object-bottom relative z-10"
+          className="h-full w-full object-cover md:object-contain object-bottom relative z-10"
           style={{
             maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
             WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)'

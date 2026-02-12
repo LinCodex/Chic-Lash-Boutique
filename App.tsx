@@ -17,14 +17,14 @@ const HomePage: React.FC = () => {
         <Hero />
 
         {/* About Section - snap-start added here for the specific hero-to-about scroll behavior */}
-        <section id="about" className="min-h-[60vh] flex items-center justify-center pt-24 pb-20 bg-gradient-to-b from-pink-200 via-pink-50 to-white relative overflow-hidden">
+        <section id="about" className="min-h-[70vh] flex items-center justify-center pt-32 pb-32 bg-gradient-to-b from-pink-200 via-pink-50 to-white relative overflow-hidden">
           <div className="container mx-auto px-6 md:px-20 relative z-10 text-center">
-            <div className="max-w-3xl mx-auto space-y-10">
+            <div className="max-w-3xl mx-auto space-y-16">
               <span className="text-pink-600 text-[12px] uppercase tracking-widest font-bold block">Why Choose Us</span>
               <p className="text-3xl md:text-5xl font-serif font-bold leading-tight text-gray-900">
                 We believe that <span className="text-pink-500 italic font-light">getting your lashes done</span> should be the best part of your day.
               </p>
-              <div className="flex flex-col items-center gap-6">
+              <div className="flex flex-col items-center gap-8">
                 <div className="w-16 h-1 bg-pink-300/50 rounded-full"></div>
                 <p className="text-sm text-gray-500 max-w-md mx-auto leading-relaxed font-medium">
                   Our specialists are true artists. We use safe, premium products to ensure your lashes look stunning, feel weightless, and last longer.
