@@ -11,9 +11,6 @@ const TreatmentMenu: React.FC = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    // Categorize services (simple manual categorization based on ID or name for now)
-    const lashServices = SERVICES.filter(s => s.name.toLowerCase().includes('lash') || s.id.includes('lash'));
-    const nailServices = SERVICES.filter(s => !s.name.toLowerCase().includes('lash') && !s.id.includes('lash'));
 
     return (
         <div className="min-h-screen bg-white selection:bg-pink-900 selection:text-white">
@@ -29,7 +26,7 @@ const TreatmentMenu: React.FC = () => {
                             The <span className="italic text-pink-500 font-light">Treatment</span> Menu
                         </h1>
                         <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light">
-                            Experience the epitome of luxury with our curated selection of lash and nail treatments.
+                            Experience the epitome of luxury with our premium lash treatments.
                             Each service is designed to enhance your natural beauty.
                         </p>
                     </div>
@@ -43,35 +40,61 @@ const TreatmentMenu: React.FC = () => {
 
                 <div className="container mx-auto px-6 py-20 relative z-10">
 
-                    {/* Lash Section */}
-                    {lashServices.length > 0 && (
-                        <div className="mb-24">
-                            <div className="flex items-end gap-4 mb-12 border-b border-pink-100 pb-4">
-                                <h2 className="text-3xl md:text-4xl font-serif text-gray-900">Lash Artistry</h2>
-                                <span className="text-pink-400 italic font-serif text-xl mb-1">Extensions & Care</span>
+                    {/* Extensions Section */}
+                    {(() => {
+                        const extensionServices = SERVICES.filter(s => ['classic-set', 'hybrid-set', 'volume-set', 'mega-volume-set'].includes(s.id));
+                        return extensionServices.length > 0 && (
+                            <div className="mb-24">
+                                <div className="flex items-end gap-4 mb-12 border-b border-pink-100 pb-4">
+                                    <h2 className="text-3xl md:text-4xl font-serif text-gray-900">Lash Extensions</h2>
+                                    <span className="text-pink-400 italic font-serif text-xl mb-1">Full Sets</span>
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                                    {extensionServices.map((service, index) => (
+                                        <ServiceCard key={service.id} service={service} index={index} />
+                                    ))}
+                                </div>
                             </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                {lashServices.map((service, index) => (
-                                    <ServiceCard key={service.id} service={service} index={index} />
-                                ))}
-                            </div>
-                        </div>
-                    )}
+                        );
+                    })()}
 
-                    {/* Nail Section */}
-                    {nailServices.length > 0 && (
-                        <div className="mb-12">
-                            <div className="flex items-end gap-4 mb-12 border-b border-pink-100 pb-4">
-                                <h2 className="text-3xl md:text-4xl font-serif text-gray-900">Nail Care</h2>
-                                <span className="text-pink-400 italic font-serif text-xl mb-1">Manicures & Pedicures</span>
+                    {/* Lifts & Tints Section */}
+                    {(() => {
+                        const liftServices = SERVICES.filter(s => ['lash-lift', 'lash-lift-tint', 'lash-tint'].includes(s.id));
+                        return liftServices.length > 0 && (
+                            <div className="mb-24">
+                                <div className="flex items-end gap-4 mb-12 border-b border-pink-100 pb-4">
+                                    <h2 className="text-3xl md:text-4xl font-serif text-gray-900">Lifts & Tints</h2>
+                                    <span className="text-pink-400 italic font-serif text-xl mb-1">Natural Enhancement</span>
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                    {liftServices.map((service, index) => (
+                                        <ServiceCard key={service.id} service={service} index={index} />
+                                    ))}
+                                </div>
                             </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                {nailServices.map((service, index) => (
-                                    <ServiceCard key={service.id} service={service} index={index} />
-                                ))}
+                        );
+                    })()}
+
+                    {/* Maintenance Section */}
+                    {(() => {
+                        const maintenanceServices = SERVICES.filter(s => ['classic-refill', 'volume-refill', 'lash-removal'].includes(s.id));
+                        return maintenanceServices.length > 0 && (
+                            <div className="mb-24">
+                                <div className="flex items-end gap-4 mb-12 border-b border-pink-100 pb-4">
+                                    <h2 className="text-3xl md:text-4xl font-serif text-gray-900">Maintenance</h2>
+                                    <span className="text-pink-400 italic font-serif text-xl mb-1">Refills & Care</span>
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                    {maintenanceServices.map((service, index) => (
+                                        <ServiceCard key={service.id} service={service} index={index} />
+                                    ))}
+                                </div>
                             </div>
-                        </div>
-                    )}
+                        );
+                    })()}
+
+
                 </div>
             </div>
 

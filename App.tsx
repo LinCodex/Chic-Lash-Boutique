@@ -22,12 +22,12 @@ const HomePage: React.FC = () => {
             <div className="max-w-3xl mx-auto space-y-10">
               <span className="text-pink-600 text-[12px] uppercase tracking-widest font-bold block">Why Choose Us</span>
               <p className="text-3xl md:text-5xl font-serif font-bold leading-tight text-gray-900">
-                We believe that <span className="text-pink-500 italic font-light">getting your nails done</span> should be the best part of your day.
+                We believe that <span className="text-pink-500 italic font-light">getting your lashes done</span> should be the best part of your day.
               </p>
               <div className="flex flex-col items-center gap-6">
                 <div className="w-16 h-1 bg-pink-300/50 rounded-full"></div>
                 <p className="text-sm text-gray-500 max-w-md mx-auto leading-relaxed font-medium">
-                  Our team loves what they do. We use safe, high-quality products to make sure you get results that last and look amazing.
+                  Our specialists are true artists. We use safe, premium products to ensure your lashes look stunning, feel weightless, and last longer.
                 </p>
               </div>
             </div>
