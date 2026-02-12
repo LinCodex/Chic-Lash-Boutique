@@ -9,13 +9,13 @@ export const CONTACT_INFO: ContactInfo = {
 };
 
 export const BUSINESS_HOURS: BusinessHour[] = [
-  { day: "Monday", hours: "10:00 – 19:30" },
+  { day: "Monday", hours: "10:00 AM – 7:30 PM" },
   { day: "Tuesday", hours: "Closed" },
-  { day: "Wednesday", hours: "10:00 – 19:30" },
-  { day: "Thursday", hours: "10:00 – 19:30" },
-  { day: "Friday", hours: "10:00 – 19:30" },
-  { day: "Saturday", hours: "10:00 – 19:30" },
-  { day: "Sunday", hours: "10:00 – 17:00" },
+  { day: "Wednesday", hours: "10:00 AM – 7:30 PM" },
+  { day: "Thursday", hours: "10:00 AM – 7:30 PM" },
+  { day: "Friday", hours: "10:00 AM – 7:30 PM" },
+  { day: "Saturday", hours: "10:00 AM – 7:30 PM" },
+  { day: "Sunday", hours: "10:00 AM – 5:00 PM" },
 ];
 
 export const SERVICES: Service[] = [

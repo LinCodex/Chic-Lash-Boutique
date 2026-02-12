@@ -17,7 +17,7 @@ const HomePage: React.FC = () => {
         <Hero />
 
         {/* About Section - snap-start added here for the specific hero-to-about scroll behavior */}
-        <section id="about" className="min-h-screen flex items-center justify-center pt-32 pb-32 bg-gradient-to-b from-pink-200 via-pink-50 to-white relative overflow-hidden">
+        <section id="about" className="min-h-[100dvh] flex items-center justify-center pt-32 pb-32 bg-gradient-to-b from-pink-200 via-pink-50 to-white relative overflow-hidden">
           <div className="container mx-auto px-6 md:px-20 relative z-10 text-center">
             <div className="max-w-3xl mx-auto space-y-16">
               <span className="text-pink-600 text-[12px] uppercase tracking-widest font-bold block">Why Choose Us</span>
